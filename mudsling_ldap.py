@@ -24,7 +24,9 @@ server = None
 
 
 class LDAPAuthPlugin(Plugin):
-    pass
+    def server_startup(self):
+        global server
+        server = LDAPServer(self.options)
 
 
 class LDAPConnector(ldapconnector.LDAPConnector):
